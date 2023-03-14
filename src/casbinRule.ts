@@ -44,6 +44,20 @@ export class CasbinRule extends Model<CasbinRule> {
   public v5: string;
 }
 
+CasbinRule.init({
+		id: {
+			type: DataTypes.UUID,
+			allowNull: false,
+			defaultValue: DataTypes.UUIDV4,
+			primaryKey: true
+		}
+	}, {
+		underscored: true,
+		underscoredAll: true,
+		sequelize,
+		modelName: 'casbin_rule'
+	});
+
 export function updateCasbinRule(
   tableName = 'casbin_rule',
   schema?: string
